@@ -1,23 +1,21 @@
 const url = "https://jsonplaceholder.typicode.com/posts/1";
 
 //your JS code here. If required.
-// API URL (already provided in your J
-
 // Async function with callback
 async function fetchData(callback) {
-  const response = await fetch(apiUrl);
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
   const data = await response.json();
 
-  // Call the callback with the result
+  // Call the callback with fetched data
   callback(data);
 }
 
-// Callback function
-function showTitle(result) {
+// Callback function to display title
+function displayTitle(result) {
   document.getElementById("output").innerText = result.title;
 }
 
-// Button click event
+// Button click handler
 document.getElementById("btn").addEventListener("click", () => {
-  fetchData(showTitle);
+  fetchData(displayTitle);
 });
